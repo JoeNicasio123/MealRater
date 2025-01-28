@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MealRater</string>
+    <string name="textViewName">Restaurant:</string>
+    <string name="textEditRestaurant">Name</string>
+    <string name="textViewDish">Dish:</string>
+    <string name="textEditDish">Name</string>
+    <string name="textViewRating">Rating:</string>
+    <string name="buttonRateMeal">Rate Meal</string>
+    <string name="buttonSave">Save</string>
+</resources>
