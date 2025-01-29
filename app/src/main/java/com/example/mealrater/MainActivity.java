@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        rateMeal();
+        rateMealButton();
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void rateMeal() {
+    public void rateMealButton() {
         Button buttonRateMeal = findViewById(R.id.buttonRateMeal);
         buttonRateMeal.setOnClickListener(new View.OnClickListener() {
             @Override
