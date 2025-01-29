@@ -11,7 +11,17 @@ import android.widget.TextView;
 
 import androidx.fragment.app.DialogFragment;
 
+public class RateMealActivity extends DialogFragment {
 
+    public interface RateMealListener {
+        void onRateMeal(float rating);
+    }
+
+    private RateMealListener listener;
+
+    public void setListener(RateMealListener listener) {
+        this.listener = listener;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
