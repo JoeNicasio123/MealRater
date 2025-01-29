@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        rateMealButton();
+        showRateMealDialog();
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -33,32 +33,16 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void rateMealButton() {
+    private void showRateMealDialog() {
         Button buttonRateMeal = findViewById(R.id.buttonRateMeal);
         buttonRateMeal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openDialog();
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                RateMealActivity rateMealActivity = new RateMealActivity();
+                rateMealActivity.show(fragmentManager, "rate_meal_dialog");
             }
         });
-    }
-
-    private void openDialog() {
-        Dialog dialog = new Dialog(MainActivity.this);
-        dialog.setContentView(R.layout.rate_meal);
-
-        RatingBar ratingBar = dialog.findViewById(R.id.ratingBar);
-        Button buttonSave= dialog.findViewById(R.id.buttonSave);
-        TextView textViewRate = findViewById(R.id.textViewRate);
-
-        buttonSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                float rating = ratingBar.getRating();
-                textViewRate.setText("" + rating);
-                dialog.dismiss();
-            }
-        });
-        dialog.show();
     }
 }
+
