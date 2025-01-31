@@ -36,9 +36,21 @@ public class MainActivity extends AppCompatActivity {
     public void rateMealButton() {
         Button buttonRateMeal = findViewById(R.id.buttonRateMeal);
         buttonRateMeal.setOnClickListener(new View.OnClickListener() {
+
+            EditText editTextDish = findViewById(R.id.editTextDish);
+            EditText editTextRestaurant = findViewById(R.id.editTextRestaurant);
+            TextView textViewMessage = findViewById(R.id.textViewMessage);
             @Override
             public void onClick(View v) {
-                openDialog();
+                String restaurantString = editTextRestaurant.getText().toString();
+                String dishString = editTextDish.getText().toString();
+
+                if(restaurantString.isEmpty() || (dishString.isEmpty())) {
+                    textViewMessage.setText("Please enter a restaurant and dish");
+                }
+                else {
+                    openDialog();
+                }
             }
         });
     }
